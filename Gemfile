@@ -25,8 +25,16 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-# Use MongoDB
-gem 'mongoid'
+# Use MongoDB, and go get it on github because it's not yet compatible with rails 4
+# http://blog.dayo.fr/2013/09/rails-4-et-mongodb-part-1/
+gem 'mongoid', github: 'mongoid/mongoid'
+gem 'bson_ext'
+
+group :test do
+  gem 'rspec-rails'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
