@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'bson_ext'
 
+gem 'rails_12factor', group: :production
+
 group :test do
   gem 'rspec-rails'
   gem 'cucumber-rails', :require => false
