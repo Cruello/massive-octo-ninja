@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_for_any_action, only: [:new, :show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -70,5 +71,10 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:pseudo, :email)
+    end
+
+    # Redirect for any action
+    def redirect_for_any_action
+      redirect_to users_path
     end
 end

@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/mongoid/mongoid.git
-  revision: d35eaab4460540d3016baac9b40e5ebb0ed18b44
+  revision: ec65b665430a13eab135fcd22b3b766bb8e8c8ea
   specs:
     mongoid (4.0.0)
       activemodel (~> 4.0.0)
@@ -37,6 +37,7 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.1)
     atomic (1.1.14)
+    bcrypt-ruby (3.1.2)
     bson (2.0.0.rc3)
     bson_ext (1.5.1)
     builder (3.1.4)
@@ -82,9 +83,14 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mime-types (1.25)
+    mime-types (1.25.1)
     mini_portile (0.5.2)
     minitest (4.7.5)
+    mongoid_rails_migrations (1.0.0)
+      activesupport (>= 3.2.0)
+      bundler (>= 1.0.0)
+      rails (>= 3.2.0)
+      railties (>= 3.2.0)
     moped (2.0.0.beta3)
       bson (~> 2.0.0.rc3)
       optionable (~> 0.1.1)
@@ -167,6 +173,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby (= 3.1.2)
   bson_ext
   coffee-rails (~> 4.0.0)
   cucumber-rails
@@ -174,6 +181,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   mongoid!
+  mongoid_rails_migrations (= 1.0.0)
   rails (= 4.0.1)
   rails_12factor
   rspec-rails

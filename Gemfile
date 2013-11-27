@@ -3,6 +3,7 @@ ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
+gem 'bcrypt-ruby', '3.1.2'
 
 
 # Use SCSS for stylesheets
@@ -29,6 +30,7 @@ gem 'jbuilder', '~> 1.2'
 # Use MongoDB, and go get it on github because it's not yet compatible with rails 4
 # http://blog.dayo.fr/2013/09/rails-4-et-mongodb-part-1/
 gem 'mongoid', github: 'mongoid/mongoid'
+gem 'mongoid_rails_migrations', '1.0.0'
 gem 'bson_ext'
 
 gem 'rails_12factor', group: :production
