@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Address</th>
       <th>Comments</th>
       <th>Coordinates</th>
       <th></th>
@@ -16,6 +17,7 @@
     <% @things.each do |thing| %>
       <tr>
         <td><%= thing.name %></td>
+        <td><%= thing.address %></td>
         <td><%= thing.comments %></td>
         <td><%= thing.coordinates %></td>
         <td><%= link_to 'Show', thing %></td>
