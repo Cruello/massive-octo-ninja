@@ -16,14 +16,24 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+    <input type="hidden" id="latitude"/>
+    <input type="hidden" id="longitude"/>
+    <button type="button" id="geocode">Geocode</button>
+  </div>
+  <div class="field">
     <%= f.label :comments %><br>
     <%= f.text_field :comments %>
   </div>
   <div class="field">
     <%= f.label :coordinates %><br>
-    <%= f.text_field :coordinates %>
+    <%# f.text_field :coordinates %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<label title="placer le plus précisément possible le marqueur sur la carte">Localisation</label>
+<div id="locationSelection"></div>

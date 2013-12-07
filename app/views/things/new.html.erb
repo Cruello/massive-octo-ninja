@@ -1,5 +1,15 @@
+<section>
 <h1>New thing</h1>
-
 <%= render 'form' %>
 
 <%= link_to 'Back', things_path %>
+</section>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<%= javascript_include_tag "things", "data-turbolinks-track" => true %>
+<script type="text/javascript">
+$(document).ready(function () {
+    $('#geocode').click(function (event) { 
+        geocode($('#address').get(0));
+    });
+})
+</script>
