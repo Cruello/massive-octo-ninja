@@ -14,6 +14,8 @@
 
 		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 		<%= csrf_meta_tags %>
+		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+		<%#= javascript_include_tag params[:controller] %>
 	</head>
 	<body>
 		<!--[if lt IE 7]>
@@ -29,6 +31,6 @@
             <a href="views/terms.html">Conditions d'utilisation</a>
             <a href="views/about.html">A propos</a>
         </footer>
-		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+		
 	</body>
 </html>

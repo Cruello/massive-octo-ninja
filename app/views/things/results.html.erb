@@ -1,0 +1,23 @@
+
+        <section id="results">
+            <table>
+                <tbody>
+                    <% @things.each do |thing| %>
+                    <tr>
+                        <td><%= thing.name %></td>
+                        <td>marché Richard Lenoir</td>
+                        <td>le stand à côté du traiteur italien vend des carottes du feu de dieu</td>
+                    </tr>
+                    <% end %>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>Quoi</th>
+                        <th>Où</th>
+                        <th>Commentaires</th>
+                    </tr>
+                </thead>
+            </table>
+        </section>
+
+

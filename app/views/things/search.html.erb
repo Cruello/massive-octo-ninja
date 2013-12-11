@@ -1,0 +1,73 @@
+<section id="body" class="content">
+<form id="searchform" action="views/results.html">
+    <p>
+        <label for="search"><img src="img/search-icon.png"/></label>
+        <input id="search" type="search" placeholder="carottes"/>
+        <button>Recherche</button>
+    </p>
+    <label for="closeToDevice">Près de là ou je suis maintenant</label>
+    <input type="checkbox" id="closeToDevice" value="closeToDevice"/>
+    <label for="closeToFavorites">Près de mes endroits favoris</label>
+    <input type="checkbox" id="closeToFavorites" value="closeToFavorites"/>
+    <label for="closeToSelection">Près d'un autre endroit</label>
+    <input type="checkbox" id="closeToSelection" value="closeToSelection"/>
+    <input type="hidden" id="coordinates"/>
+</form>
+
+<div id="locationSelection"></div>
+
+<article>
+    <p>
+    Outrouver.com vous permet de trouver n'importe quoi à proximité de chez vous.
+    </p>
+    
+    <p>
+    C'est un site collaboratif où tout le monde peut déposer ses trouvailles, etc.
+    </p>
+
+    <p>
+    Marre d'écumer toutes les échoppes de la rue du Cul ou de toutes les boutiques du 
+    passage du Tuyau Qui Flotte pour trouver votre bonheur ?
+    </p>
+    
+    <p>
+    C'est ici que ça se passe.
+    </p>
+
+    <aside>
+        <h2>le top des recherches sans réponses</h2>
+        <ol>
+            <% [ "du bon mascarpone", "une Clio Baccara pas chère", "des chaussons poilus", "des bougies artistiques", "de la superglue écolo"].each do | search | %>
+            <li><%= link_to search, :controller => "things", :action => "new", :params => {name:search} %></li>
+            <% end %>
+        </ol>
+    </aside>
+
+    <aside>
+        <h2>le top des recherches</h2>
+        <ol>
+            <% [ "guirlande qui clignote pas", "globe terrestre en verre"].each do | search | %>
+            <li><%= link_to search %></li>
+            <% end %>
+        </ol>
+    </aside>
+</article>
+</section>
+
+<section id="loginSection" class="content">
+<form id="loginform" action="">
+    <p>
+        <label for="login">login</label>
+        <input id="login"/>
+    </p>
+    <p>
+        <label for="password">password</label>
+        <input id="password" type="password"/>
+    </p>
+    <button>Connexion</button>
+</form>
+</section>
+
+<nav>
+<a href="views/account.html">Mon compte</a>
+</nav>

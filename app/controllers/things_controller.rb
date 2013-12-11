@@ -4,7 +4,9 @@ class ThingsController < ApplicationController
   # GET /things
   # GET /things.json
   def index
-    @things = Thing.all
+    # @things = Thing.all
+    @things = Thing.where(name: params[:name])
+    render "results"
   end
 
   # GET /things/1
@@ -15,6 +17,7 @@ class ThingsController < ApplicationController
   # GET /things/new
   def new
     @thing = Thing.new
+    @thing.name = params[:name]
   end
 
   # GET /things/1/edit
@@ -59,6 +62,9 @@ class ThingsController < ApplicationController
       format.html { redirect_to things_url }
       format.json { head :no_content }
     end
+  end
+
+  def search
   end
 
   private
