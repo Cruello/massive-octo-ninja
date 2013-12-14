@@ -1,24 +1,31 @@
-<p id="notice"><%= notice %></p>
+<section id="recorded_thing">
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @thing.name %>
-</p>
+	<p>
+	  <strong>Name:</strong>
+	  <%= @thing.name %>
+	</p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @thing.address %>
-</p>
+	<p>
+	  <strong>Address:</strong>
+	  <%= @thing.address %>
+	  <%= @thing.coordinates %>
+	  <input type="hidden" name="coordinates">
+	</p> 
 
-<p>
-  <strong>Comments:</strong>
-  <%= @thing.comments %>
-</p>
+	<p>
+	  <strong>Comments:</strong>
+	  <%= @thing.comments %>
+	</p>
 
-<p>
-  <strong>Coordinates:</strong>
-  <%= @thing.coordinates %>
-</p>
+	<p title="Rate this thing !">
+		<img src="" alt="first star"/>
+		<img src="" alt="second star"/>
+		<img src="" alt="third star"/>
+	</p>
+	<button>Add this thing to your favorites</button>
 
+	<div id="locationSelection"></div>
+</section>
 <%= link_to 'Edit', edit_thing_path(@thing) %> |
 <%= link_to 'Back', things_path %>

@@ -18,17 +18,12 @@
   <div class="field">
     <%= f.label :address %><br>
     <%= f.text_field :address %>
-    <input type="hidden" id="latitude"/>
-    <input type="hidden" id="longitude"/>
+    <input type="hidden" id="coordinates"/>
     <button type="button" id="geocode">Geocode</button>
   </div>
   <div class="field">
     <%= f.label :comments %><br>
     <%= f.text_field :comments %>
-  </div>
-  <div class="field">
-    <%= f.label :coordinates %><br>
-    <%# f.text_field :coordinates %>
   </div>
   <div class="actions">
     <%= f.submit %>
