@@ -6,13 +6,13 @@ class ThingsController < ApplicationController
   def index
     # @things = Thing.all
     @things = Thing.where(name: params[:name])
+    logger.debug "Search PARAMETERS: #{params.inspect}"
     render "results"
   end
 
   # GET /things/1
   # GET /things/1.json
   def show
-    logger.debug "Thing attributes hash: #{@thing.attributes.inspect}"
   end
 
   # GET /things/new
@@ -29,9 +29,8 @@ class ThingsController < ApplicationController
   # POST /things
   # POST /things.json
   def create
-    # @thing = Thing.new(params[:thing])
     @thing = Thing.new(thing_params)
-    logger.debug "Thing attributes hash: #{@thing.attributes.inspect}"
+    # logger.debug "Thing attributes hash: #{@thing.attributes.inspect}"
     # @thing.coordinates = JSON.load(params[:coordinates])
 
     respond_to do |format|

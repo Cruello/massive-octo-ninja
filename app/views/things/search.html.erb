@@ -1,18 +1,18 @@
 <section id="body" class="content">
-<form id="searchform" action="views/results.html">
-    <p>
-        <label for="search"><img src="img/search-icon.png"/></label>
-        <input id="search" type="search" placeholder="carottes"/>
-        <button>Recherche</button>
-    </p>
-    <label for="closeToDevice">Près de là ou je suis maintenant</label>
-    <input type="checkbox" id="closeToDevice" value="closeToDevice"/>
-    <label for="closeToFavorites">Près de mes endroits favoris</label>
-    <input type="checkbox" id="closeToFavorites" value="closeToFavorites"/>
-    <label for="closeToSelection">Près d'un autre endroit</label>
-    <input type="checkbox" id="closeToSelection" value="closeToSelection"/>
-    <input type="hidden" id="coordinates"/>
-</form>
+    <%= form_tag("/things", method: "get") do %>
+      <%= label_tag(:name, "Search for:") %>
+      <%= text_field_tag(:name, placeholder:"guirlande") %>
+      <%= image_tag("search-icon.png", alt: "Search") %>
+      <%= submit_tag("Search") %>
+        
+        <label for="closeToDevice">Près de là ou je suis maintenant</label>
+        <input type="checkbox" id="closeToDevice" name="closeToDevice" value="true"/>
+        <label for="closeToFavorites">Près de mes endroits favoris</label>
+        <input type="checkbox" id="closeToFavorites" name="closeToFavorites" value="true"/>
+        <label for="closeToSelection">Près d'un autre endroit</label>
+        <input type="checkbox" id="closeToSelection" name="closeToSelection" value="true"/>
+        <input type="hidden" id="coordinates"/>
+    <% end %>
 
 <div id="locationSelection"></div>
 
