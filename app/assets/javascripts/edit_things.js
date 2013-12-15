@@ -11,14 +11,18 @@ var things = (function () {
               zoom: 8,
               mapTypeId: google.maps.MapTypeId.ROADMAP
             },
-            mapContainer = document.getElementById("locationSelection");
+            mapContainer = $("#locationSelection");
 
-        if (mapContainer) {
+        if (mapContainer.length > 0) {
             geocoder = new google.maps.Geocoder();
-            map = new google.maps.Map(mapContainer, mapOptions);
+            map = new google.maps.Map(mapContainer[0], mapOptions);
             google.maps.event.addListener(map, "click", function (e) {
                 storeCoordinates(e.latLng);
-            });         
+            });
+            if (mapContainer.data('latitude') &&  mapContainer.data('longitude')) {
+                var pos = new google.maps.LatLng(mapContainer.data('latitude'), mapContainer.data('longitude'));
+                setMapPos(pos);
+            }
         }
         setEventHandlers();
     }
@@ -28,35 +32,21 @@ var things = (function () {
             { 'address': elem.value },
             function (results, status) {
                 var pos = results[0].geometry.location;           
-                var mark = new google.maps.Marker({
-                     map: map,
-                     position: pos,
-                     visible: true
-                    });
-                map.panTo(pos);
-                map.setZoom(17);
+                setMapPos(pos);
                 storeCoordinates(pos);
             }
         );
     }
 
     function storeCoordinates(mapPos) {
-        var pos  = {};
-
-        pos.lat = mapPos.lat();
-        pos.lng = mapPos.lng();
-        $('#coordinates').val(JSON.stringify(pos));
+        $('#thing_position_attributes_latitude').val(mapPos.lat());
+        $('#thing_position_attributes_longitude').val(mapPos.lng());
     }
 
     function setEventHandlers() {
-        var thingPos;
-
         $('#geocode').click(function() {
             geocode($('#thing_address').get(0));        
-        });
-        if ($('#recorded_thing').length > 0) {
-            setMapPos(thingPos);
-        }
+        });        
     }
 
     function setMapPos(pos) {

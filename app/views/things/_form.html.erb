@@ -18,7 +18,10 @@
   <div class="field">
     <%= f.label :address %><br>
     <%= f.text_field :address %>
-    <input type="hidden" id="coordinates"/>
+    <%= f.fields_for :position do |pos| %>
+      <%= pos.hidden_field :latitude %>
+      <%= pos.hidden_field :longitude %>
+    <% end %>
     <button type="button" id="geocode">Geocode</button>
   </div>
   <div class="field">

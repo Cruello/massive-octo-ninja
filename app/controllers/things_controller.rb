@@ -12,12 +12,14 @@ class ThingsController < ApplicationController
   # GET /things/1
   # GET /things/1.json
   def show
+    logger.debug "Thing attributes hash: #{@thing.attributes.inspect}"
   end
 
   # GET /things/new
   def new
     @thing = Thing.new
     @thing.name = params[:name]
+    @thing.build_position
   end
 
   # GET /things/1/edit
@@ -27,7 +29,10 @@ class ThingsController < ApplicationController
   # POST /things
   # POST /things.json
   def create
+    # @thing = Thing.new(params[:thing])
     @thing = Thing.new(thing_params)
+    logger.debug "Thing attributes hash: #{@thing.attributes.inspect}"
+    # @thing.coordinates = JSON.load(params[:coordinates])
 
     respond_to do |format|
       if @thing.save
@@ -75,6 +80,8 @@ class ThingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def thing_params
-      params.require(:thing).permit(:name, :address, :comments, :coordinates)
+      # params.require(:thing)
+      params.require(:thing).permit!
+      # params.require(:thing).permit(:name, :address, :comments, :position_attributes [ :latitude, :longitude ])
     end
 end

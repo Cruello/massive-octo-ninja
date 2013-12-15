@@ -3,5 +3,13 @@ class Thing
   field :name, type: String
   field :address, type: String
   field :comments, type: String
-  field :coordinates, type: Hash
+  embeds_one :position
+  accepts_nested_attributes_for :position
+end
+
+class Position
+	include Mongoid::Document
+	field :latitude, type: Float
+	field :longitude, type: Float
+	embedded_in :thing, :inverse_of => :position 
 end
