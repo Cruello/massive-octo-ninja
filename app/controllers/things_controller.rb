@@ -69,6 +69,7 @@ class ThingsController < ApplicationController
   end
 
   def search
+    @topThings = Thing.all; #get the first 10 results with the most hits   
   end
 
   private

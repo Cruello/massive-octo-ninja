@@ -1,8 +1,11 @@
 Wtf::Application.routes.draw do
   root 'things#search'
+  # get "things?:params", to: 'things#index', params: /.*commit=Search/
+  # get "things", to: 'things#search'
+  # is it possible to distinguish a route that has parameters from the same route that has none ?
   resources :things
 
-  resources :users
+  # resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

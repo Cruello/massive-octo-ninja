@@ -16,14 +16,5 @@
 	  <%= @thing.comments %>
 	</p>
 
-	<p title="Rate this thing !">
-		<img src="" alt="first star"/>
-		<img src="" alt="second star"/>
-		<img src="" alt="third star"/>
-	</p>
-	<button>Add this thing to your favorites</button>
-
 	<div id="locationSelection" data-latitude="<%= @thing.position.latitude %>" data-longitude="<%= @thing.position.longitude %>"></div>
 </section>
-<%= link_to 'Edit', edit_thing_path(@thing) %> |
-<%= link_to 'Back', things_path %>
