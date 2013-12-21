@@ -6,9 +6,6 @@
         
         <p>
             C'est un site collaboratif où tout le monde peut déposer ses trouvailles, etc.
-        </p>
-
-        <p>
             Marre d'écumer toutes les échoppes de la rue du Cul ou de toutes les boutiques du 
             passage du Tuyau Qui Flotte pour trouver votre bonheur ?
         </p>
@@ -16,9 +13,13 @@
         <p>
             C'est ici que ça se passe.
         </p>
+
+        <p>
+            <%= link_to "Ajouter une trouvaille", controller: 'things', action: 'new' %>
+        </p>
     </article>
 
-    <%= form_tag("/things", method: "get") do %>
+    <%= form_tag("/things/", method: "get") do %>
       <%= image_tag("search-icon.png", alt: "Search") %>
       <%= text_field_tag(:name, nil, placeholder:"guirlande") %>
       <%= submit_tag("Search") %>

@@ -1,9 +1,21 @@
 Wtf::Application.routes.draw do
   root 'things#search'
-  # get "things?:params", to: 'things#index', params: /.*commit=Search/
-  # get "things", to: 'things#search'
+  get "things", to: 'things#index'
+  get 'things/new', to: 'things#new'
+  post 'things', to: 'things#create'
+  get 'things/:id', to: 'things#show'
+  # things_path  GET   /things(.:format)   things#search
+  # things_new_path  GET   /things/new(.:format)   things#new
+  # GET  /things(.:format)   things#index
+  # POST   /things(.:format)   things#create
+  # new_thing_path   GET   /things/new(.:format)   things#new
+  # edit_thing_path  GET   /things/:id/edit(.:format)  things#edit
+  # thing_path   GET   /things/:id(.:format)   things#show
+  # PATCH  /things/:id(.:format)   things#update
+  # PUT  /things/:id(.:format)   things#update
+  # DELETE   /things/:id(.:format)   things#destroy
   # is it possible to distinguish a route that has parameters from the same route that has none ?
-  resources :things
+  # resources :things
 
   # resources :users
 
