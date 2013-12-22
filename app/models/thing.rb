@@ -5,8 +5,9 @@ class Thing
   field :comments, type: String
   embeds_one :position
   accepts_nested_attributes_for :position
-  validates :name, presence: true
-  validates :address, presence: true
+  validates :name, :address, presence: true
+  validates :name, length: { minimum: 3, maximum: 100 }
+  validates :address, length: { maximum: 200 }
 end
 
 class Position
@@ -14,6 +15,5 @@ class Position
   field :latitude, type: Float
   field :longitude, type: Float
   embedded_in :thing, :inverse_of => :position 
-  validates :latitude, presence: true
-  validates :longitude, presence: true
+  validates :latitude, :longitude, presence: { message: "use the geocode button to record the exact position" }, numericality: true
 end
