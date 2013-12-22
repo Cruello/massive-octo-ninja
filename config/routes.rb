@@ -1,9 +1,9 @@
 Wtf::Application.routes.draw do
   root 'things#search'
-  get "things", to: 'things#index'
+  get 'things', to: 'things#index'
   get 'things/new', to: 'things#new'
+  get 'things/:id', to: 'things#show', as: :thing
   post 'things', to: 'things#create'
-  get 'things/:id', to: 'things#show'
   # things_path  GET   /things(.:format)   things#search
   # things_new_path  GET   /things/new(.:format)   things#new
   # GET  /things(.:format)   things#index

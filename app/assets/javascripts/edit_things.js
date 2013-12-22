@@ -31,9 +31,13 @@ var things = (function () {
         geocoder.geocode(
             { 'address': elem.value },
             function (results, status) {
-                var pos = results[0].geometry.location;           
-                setMapPos(pos);
-                storeCoordinates(pos);
+                var pos;
+
+                if (results.length > 0) {
+                    pos = results[0].geometry.location;           
+                    setMapPos(pos);
+                    storeCoordinates(pos);
+                }
             }
         );
     }
