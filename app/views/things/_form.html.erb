@@ -12,26 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :address %><br>
+    <%= f.label :address %>
     <%= f.text_field :address %>
     <%= f.fields_for :position do |pos| %>
       <%= pos.hidden_field :latitude %>
       <%= pos.hidden_field :longitude %>
     <% end %>
+  </div>
+  <div class="actions">
     <button type="button" id="geocode">Geocode</button>
   </div>
+  <div id="locationSelection"></div>
   <div class="field">
-    <%= f.label :comments %><br>
-    <%= f.text_field :comments %>
+    <%= f.label :comments %>
+    <%= f.text_area(:comments, cols: 30, rows: 4) %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
-
-<label title="placer le plus précisément possible le marqueur sur la carte">Localisation</label>
-<div id="locationSelection"></div>

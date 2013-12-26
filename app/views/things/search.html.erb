@@ -1,37 +1,46 @@
-<section id="body" class="content">
-    <article>
+<section>
+    <article id="intro">
         <p>
-            Outrouver.com vous permet de trouver n'importe quoi à proximité de chez vous.
+            Outrouver.com permet de trouver n'importe quoi à proximité de chez vous. Un endroit insolite, un objet bien spécifique, un restaurant typique, un bar, un service difficile à trouver, etc.
         </p>
         
         <p>
-            C'est un site collaboratif où tout le monde peut déposer ses trouvailles, etc.
-            Marre d'écumer toutes les échoppes de la rue du Cul ou de toutes les boutiques du 
-            passage du Tuyau Qui Flotte pour trouver votre bonheur ?
-        </p>
-        
-        <p>
-            C'est ici que ça se passe.
+            C'est un site collaboratif où tout le monde peut déposer ses trouvailles, quelles qu'elles soient. Il suffit de décrire votre trouvaille, et de préciser l'endroit sur une carte. Faites profiter les autres de vos bons plans.
         </p>
 
-        <p>
+        <div class="actions">
             <%= link_to "Ajouter une trouvaille", controller: 'things', action: 'new' %>
-        </p>
+        </div>
     </article>
 
-    <%= form_tag("/things/", method: "get") do %>
-      <%= image_tag("search-icon.png", alt: "Search") %>
-      <%= text_field_tag(:name, nil, placeholder:"guirlande") %>
-      <%= submit_tag("Search") %>
-        
-        <label for="closeToDevice">Près de là ou je suis maintenant</label>
-        <input type="checkbox" id="closeToDevice" name="closeToDevice" value="true"/>
-        <label for="closeToFavorites">Près de mes endroits favoris</label>
-        <input type="checkbox" id="closeToFavorites" name="closeToFavorites" value="true"/>
-        <label for="closeToSelection">Près d'un autre endroit</label>
-        <input type="checkbox" id="closeToSelection" name="closeToSelection" value="true"/>
-        <input type="hidden" id="coordinates"/>
-    <% end %>
+    <article id="search">
+        <%= form_tag("/things/", method: "get") do %>
+            <div class="field">
+                <label>
+                    <%= image_tag("magnifier.png", alt: "Search") %>
+                </label>
+                <%= text_field_tag(:name, nil, placeholder:"ce que vous cherchez") %>
+            </div>
+            
+            <fieldset>
+                <legend>Options</legend>
+                    <div class="field">
+                        <label for="closeToDevice">Près de là ou je suis maintenant</label>
+                        <input type="checkbox" id="closeToDevice" name="closeToDevice" value="true"/>
+                    </div>                    
 
-    <div id="locationSelection"></div>
+                    <div class="field">
+                        <label for="closeToSelection">Près d'un endroit choisi sur la carte</label>
+                        <input type="checkbox" id="closeToSelection" name="closeToSelection" value="true"/>
+                    </div>
+            </fieldset>
+            
+            <div class="actions">
+                <%= submit_tag("Search") %>
+            </div>
+            <input type="hidden" id="coordinates"/>
+        <% end %>
+
+        <div id="locationSelection"></div>
+    </article>
 </section>
