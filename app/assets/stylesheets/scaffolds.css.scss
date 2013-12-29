@@ -6,10 +6,13 @@
   display: table-row;
   label {
     font-weight: bold;
+    padding: 0 10px;
+  }
+  input, textarea {
+    padding: 2px;
   }
   label, input {
     display: table-cell;
-    padding: 0 10px;
   }
 }
 

@@ -128,13 +128,32 @@ a {
     color: #BDC5D4;
 }
 
-#intro {
+table {
+    width: 100%;
+}
+
+tbody {
+    border-bottom: 1px solid;
+}
+
+td, th {
+    border-width: 0 1px;
+    border-style: solid;
+    padding: 2px 5px;
+}
+
+th {
+    background-color: #BDC5D4;
+    color: #2F3239;
+}
+
+#intro, #description {
     position: absolute;
     width: 45%;
 }
 
-#search {
-    margin-left: 46%;
+#search, #location {
+    margin-left: 47%;
 }
 
 /* ==========================================================================
