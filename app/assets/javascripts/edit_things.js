@@ -7,24 +7,35 @@ var things = (function () {
 
     function init() {
         var mapOptions = {
-              center: new google.maps.LatLng(56.563955,-4.721375),
-              zoom: 8,
+              center: new google.maps.LatLng(46.422713,2.263184), // France, loose zoom
+              zoom: 5,
               mapTypeId: google.maps.MapTypeId.ROADMAP
             },
-            mapContainer = $("#locationSelection");
+            mapContainer = $("#locationSelection"),
+            isGeolocEnabled = $('#closeToDevice').length > 0;
 
         if (mapContainer.length > 0) {
             geocoder = new google.maps.Geocoder();
             map = new google.maps.Map(mapContainer[0], mapOptions);
-            google.maps.event.addListener(map, "click", function (e) {
-                storeCoordinates(e.latLng);
-            });
+            
             if (mapContainer.data('latitude') &&  mapContainer.data('longitude')) {
                 var pos = new google.maps.LatLng(mapContainer.data('latitude'), mapContainer.data('longitude'));
                 setMapPos(pos);
             }
         }
         setEventHandlers();
+        
+        if (isGeolocEnabled) {
+            if(navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(setCurrentPos, disableGeolocation);
+            } else {
+                disableGeolocation();
+            }
+        }
+    }
+
+    function disableGeolocation() {
+        $('#closeToDevice').hide();
     }
 
     function geocode(elem) {
@@ -50,14 +61,22 @@ var things = (function () {
     function setEventHandlers() {
         $('#geocode').click(function() {
             geocode($('#thing_address').get(0));        
-        });        
+        });
+        google.maps.event.addListener(map, "click", function (e) {
+            storeCoordinates(e.latLng);
+        });
+    }
+
+    function setCurrentPos(position) {
+        var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        setMapPos(pos);
     }
 
     function setMapPos(pos) {
         new google.maps.Marker({
              map: map,
              position: pos,
-             visible: true
+             visible: true,
             });
         map.panTo(pos);
         map.setZoom(17);
