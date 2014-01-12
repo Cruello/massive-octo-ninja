@@ -1,11 +1,12 @@
 <section id="results">
     <table>
         <tbody>
-            <% @things.each do |thing| %>
+            <% @things.each_index do |i| %>
             <tr>
-                <td><%= link_to thing.name, thing %></td>
-                <td><%= thing.address %></td>
-                <td><%= thing.comments %></td>
+                <td><%= link_to @things[i].name, @things[i] %></td>
+                <td><%= @things[i].address %></td>
+                <td><%= @things[i].comments %></td>
+                <td><%= @distances[i] %> km</td>
             </tr>
             <% end %>
         </tbody>
@@ -14,6 +15,7 @@
                 <th>Quoi</th>
                 <th>Où</th>
                 <th>Commentaires</th>
+                <th>Distance</th>
             </tr>
         </thead>
     </table>

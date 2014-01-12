@@ -16,5 +16,5 @@
 	  <%= @thing.comments %>
 	</p>
 
-	<div id="locationSelection" data-latitude="<%= @thing.position.latitude %>" data-longitude="<%= @thing.position.longitude %>"></div>
+	<div id="locationSelection" data-coordinates="<%= JSON.generate(@thing.position.coordinates) %>"></div>
 </section>

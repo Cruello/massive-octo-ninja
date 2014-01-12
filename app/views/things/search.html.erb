@@ -26,19 +26,20 @@
                 <legend>Options</legend>
                     <div class="field">
                         <label for="closeToDevice">Près de là ou je suis maintenant</label>
-                        <input type="checkbox" id="closeToDevice" name="closeToDevice" value="true" checked="checked"/>
+                        <input type="radio" id="closeToDevice" name="searchLocation" value="device" checked="checked"/>
+                        <input type="hidden" id="deviceLocation" name="deviceLocation"/>
                     </div>                    
 
                     <div class="field">
                         <label for="closeToSelection">Près d'un endroit choisi sur la carte</label>
-                        <input type="checkbox" id="closeToSelection" name="closeToSelection" value="true"/>
+                        <input type="radio" id="closeToSelection" name="searchLocation" value="custom"/>
+                        <input type="hidden" id="customLocation" name="customLocation"/>
                     </div>
             </fieldset>
             
             <div class="actions">
                 <%= submit_tag("Search") %>
             </div>
-            <input type="hidden" id="coordinates"/>
         <% end %>
 
         <div id="locationSelection"></div>

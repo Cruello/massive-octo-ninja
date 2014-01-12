@@ -8,12 +8,13 @@ class Thing
   validates :name, :address, presence: true
   validates :name, length: { minimum: 3, maximum: 100 }
   validates :address, length: { maximum: 200 }
+  index({ name: 1, position: "2dsphere" })
 end
 
 class Position
   include Mongoid::Document
-  field :latitude, type: Float
-  field :longitude, type: Float
+  field :type, type: String
+  field :coordinates, type: Array
   embedded_in :thing, :inverse_of => :position 
-  validates :latitude, :longitude, presence: { message: "use the geocode button to record the exact position" }, numericality: true
+  validates :type, :coordinates, presence: { message: "use the geocode button to record the exact position" }
 end

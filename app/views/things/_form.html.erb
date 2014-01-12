@@ -36,12 +36,12 @@
         <%= f.label :address %>
         <%= f.text_field :address, placeholder: "adresse, ville" %>
         <%= f.fields_for :position do |pos| %>
-          <%= pos.hidden_field :latitude %>
-          <%= pos.hidden_field :longitude %>
+          <%= pos.hidden_field :type %>
+          <%= pos.hidden_field :coordinates %>
         <% end %>
       </div>
       <div class="actions">
-        <button type="button" id="geocode">Geocode</button>
+        <button type="button" id="geocode">Position on the map</button>
       </div>
       <div id="locationSelection"></div>
     </fieldset>

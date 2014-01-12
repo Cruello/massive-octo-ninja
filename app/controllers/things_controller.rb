@@ -4,15 +4,39 @@ class ThingsController < ApplicationController
   # GET /things
   # GET /things.json
   def index
-    # @things = Thing.all
-    @things = Thing.where(name: params[:name])
-    logger.debug "Search PARAMETERS: #{params.inspect}"
+    # @things = Thing.where("name = /.*?.*/", params[:name])
+    if params[:searchLocation] == 'custom'
+      coordinates = JSON.load(params[:customLocation])
+    elsif params[:searchLocation] == 'device'
+      coordinates = JSON.load(params[:deviceLocation])
+    end
+      
+    @things = Thing.where(
+      { name: /.*#{params[:name]}.*/,
+        position: 
+          { "$near" => 
+            { "$geometry" =>
+              { type: "Point",
+                coordinates: coordinates
+              }
+            }
+          }
+      }
+    )
+
+    @distances = []
+    @things.each_index do |i|
+      logger.debug "Search COORDINATES: #{JSON.generate(coordinates)}"
+      @distances[i] = distance(coordinates, @things[i][:position]["coordinates"]).round(3)
+    end
+
     render "results"
   end
 
   # GET /things/1
   # GET /things/1.json
   def show
+    # TODO: accepts an optional origin parameter to compute the distance from origin
   end
 
   # GET /things/new
@@ -29,6 +53,10 @@ class ThingsController < ApplicationController
   # POST /things
   # POST /things.json
   def create
+    thing_params[:position_attributes][:type] = 'Point'
+    thing_params[:position_attributes][:coordinates] = JSON.load(thing_params[:position_attributes][:coordinates])
+    # [ longitude, latitude ]
+    # logger.debug "Thing params after tratement: #{thing_params.inspect}"
     @thing = Thing.new(thing_params)
     # logger.debug "Thing attributes hash: #{@thing.attributes.inspect}"
     # @thing.coordinates = JSON.load(params[:coordinates])
@@ -83,5 +111,24 @@ class ThingsController < ApplicationController
       # params.require(:thing)
       params.require(:thing).permit!
       # params.require(:thing).permit(:name, :address, :comments, :position_attributes [ :latitude, :longitude ])
+    end
+
+    # Use to compute a distance between two points : [ lat, lng ], [ lat, lng ]
+    def distance coordsA, coordsB
+      a = [ coordsA[1], coordsA[0] ]
+      b = [ coordsB[1], coordsB[0] ]
+      rad_per_deg = Math::PI/180  # PI / 180
+      rkm = 6371                  # Earth radius in kilometers
+
+      dlon_rad = (b[1]-a[1]) * rad_per_deg  # Delta, converted to rad
+      dlat_rad = (b[0]-a[0]) * rad_per_deg
+
+      lat1_rad, lon1_rad = a.map! {|i| i * rad_per_deg }
+      lat2_rad, lon2_rad = b.map! {|i| i * rad_per_deg }
+
+      a = Math.sin(dlat_rad/2)**2 + Math.cos(lat1_rad) * Math.cos(lat2_rad) * Math.sin(dlon_rad/2)**2
+      c = 2 * Math.asin(Math.sqrt(a))
+
+      rkm * c # Delta in meters
     end
 end
