@@ -5,6 +5,10 @@ $error-color: #ff4040;
   color: green;
 }
 
+.translation_missing {
+  color: $error-color;
+}
+
 .field {
   display: table-row;
   label {

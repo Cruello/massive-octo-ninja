@@ -1,0 +1,84 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+fr:
+# home page view
+  home:
+    intro_first_paragraph: "Outrouver.com permet de trouver n'importe quoi à proximité de chez vous. Un endroit insolite, un objet bien spécifique, un restaurant typique, un bar, un service difficile à trouver, etc."
+    intro_second_paragraph: "C'est un site collaboratif où tout le monde peut déposer ses trouvailles, quelles qu'elles soient. Il suffit de décrire votre trouvaille, et de préciser l'endroit sur une carte. Faites profiter les autres de vos bons plans."
+    new_thing_button: "Ajouter une trouvaille"
+    search_placeholder: "ce que vous cherchez"
+    close_to_device: "Près de là ou je suis maintenant"
+    close_to_selection: "Près d'un endroit choisi sur la carte"
+    Search: "Rechercher"
+# results view
+  results:
+    What: "Quoi"
+    Where: "Où"
+    Comments: "Commentaires"
+    Distance: "Distance"
+    tooltips:
+      distance: "distance à vol d'oiseau"
+
+  helpers:
+    label:
+      thing:
+        name: "Nom"
+        address: "Adresse"
+        comments: "Commentaires"
+    submit:
+      thing:
+        create: "Créer"
+
+  thing_form:
+    placeholders:
+      address: "adresse, ville"
+      name: "brève description"
+      comments: "précisions complémentaires"
+    legends:
+      description: "Description"
+      location: "Localisation"
+    actions:
+      geocode: "Positionner sur la carte"
+    title: "Votre trouvaille"
+    added: "Trouvaille ajoutée avec succès"
+    creation_error: { one: "1 erreur a empêché l'enregistrement de votre trouvaille",
+    	              other: "%{count} erreurs ont empêché l'enregistrement de votre trouvaille" }
+
+  mongoid:
+    models:
+      thing: "trouvaille"
+    attributes:
+      thing:
+        position: "position"
+        address: "adresse"
+        name: "nom"
+    errors:
+      models:
+        thing:
+          attributes:
+            position:
+              invalid: "non renseignée; choisissez un endroit sur la carte avant de valider"
+            name:
+              blank: "obligatoire"
+              too_short: "trop court (3 caractères minimum)"
+            address:
+              blank: "obligatoire"

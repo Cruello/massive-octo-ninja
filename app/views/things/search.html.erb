@@ -1,15 +1,10 @@
 <section>
     <article id="intro">
-        <p>
-            Outrouver.com permet de trouver n'importe quoi à proximité de chez vous. Un endroit insolite, un objet bien spécifique, un restaurant typique, un bar, un service difficile à trouver, etc.
-        </p>
-        
-        <p>
-            C'est un site collaboratif où tout le monde peut déposer ses trouvailles, quelles qu'elles soient. Il suffit de décrire votre trouvaille, et de préciser l'endroit sur une carte. Faites profiter les autres de vos bons plans.
-        </p>
+        <p><%= t 'home.intro_first_paragraph' %></p>        
+        <p><%= t 'home.intro_second_paragraph' %></p>
 
         <div class="actions">
-            <%= link_to "Ajouter une trouvaille", controller: 'things', action: 'new' %>
+            <%= link_to t('home.new_thing_button'), controller: 'things', action: 'new' %>
         </div>
     </article>
 
@@ -19,26 +14,26 @@
                 <label>
                     <%= image_tag("magnifier.png", alt: "Search") %>
                 </label>
-                <%= text_field_tag(:name, nil, placeholder:"ce que vous cherchez") %>
+                <%= text_field_tag(:name, nil, placeholder: t('home.search_placeholder')) %>
             </div>
             
             <fieldset>
                 <legend>Options</legend>
                     <div class="field">
-                        <label for="closeToDevice">Près de là ou je suis maintenant</label>
+                        <label for="closeToDevice"><%= t 'home.close_to_device' %></label>
                         <input type="radio" id="closeToDevice" name="searchLocation" value="device" checked="checked"/>
                         <input type="hidden" id="deviceLocation" name="deviceLocation"/>
                     </div>                    
 
                     <div class="field">
-                        <label for="closeToSelection">Près d'un endroit choisi sur la carte</label>
+                        <label for="closeToSelection"><%= t 'home.close_to_selection' %></label>
                         <input type="radio" id="closeToSelection" name="searchLocation" value="custom"/>
                         <input type="hidden" id="customLocation" name="customLocation"/>
                     </div>
             </fieldset>
             
             <div class="actions">
-                <%= submit_tag("Search") %>
+                <%= submit_tag(t 'home.Search') %>
             </div>
         <% end %>
 

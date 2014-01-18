@@ -1,5 +1,6 @@
 class ThingsController < ApplicationController
   before_action :set_thing, only: [:show, :edit, :update, :destroy]
+  # I18n.locale = :fr
 
   # GET /things
   # GET /things.json
@@ -26,10 +27,9 @@ class ThingsController < ApplicationController
 
     @distances = []
     @things.each_index do |i|
-      logger.debug "Search COORDINATES: #{JSON.generate(coordinates)}"
       @distances[i] = distance(coordinates, @things[i][:position]["coordinates"]).round(3)
     end
-
+      
     render "results"
   end
 
@@ -63,7 +63,7 @@ class ThingsController < ApplicationController
 
     respond_to do |format|
       if @thing.save
-        format.html { redirect_to @thing, notice: 'Thing was successfully created.' }
+        format.html { redirect_to @thing, notice: t('thing_form.added') }
         format.json { render action: 'show', status: :created, location: @thing }
       else
         format.html { render action: 'new' }
