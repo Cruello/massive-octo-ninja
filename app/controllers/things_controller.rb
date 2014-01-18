@@ -55,6 +55,7 @@ class ThingsController < ApplicationController
   def create
     thing_params[:position_attributes][:type] = 'Point'
     thing_params[:position_attributes][:coordinates] = JSON.load(thing_params[:position_attributes][:coordinates])
+    thing_params[:ip] = request.env['REMOTE_ADDR']
     # [ longitude, latitude ]
     # logger.debug "Thing params after tratement: #{thing_params.inspect}"
     @thing = Thing.new(thing_params)

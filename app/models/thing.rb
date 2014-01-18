@@ -4,6 +4,7 @@ class Thing
   field :name, type: String
   field :address, type: String
   field :comments, type: String
+  field :ip, type: String
   embeds_one :position
   accepts_nested_attributes_for :position
   validates :name, :address, presence: true
