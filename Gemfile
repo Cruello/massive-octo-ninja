@@ -57,3 +57,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Use Unicorn as HTTP server instead of default WeBRICK
+gem 'unicorn'
