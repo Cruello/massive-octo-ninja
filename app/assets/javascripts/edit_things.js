@@ -6,23 +6,25 @@ var things = (function () {
         marker,
         geocoder;
 
-    function addMarker(pos) {
+    function addMarker(pos, options) {
+        var o = options || {},
+            zoom = o.zoom || 17;
+
         if (marker) {
-            setMarkerPosition(pos);
-        } else {
-            marker = new google.maps.Marker({
-                map: map,
-                position: pos,
-                visible: true,
-                draggable: true
-            });
-            google.maps.event.addListener(marker, "mouseup", function (e) {
-                storeCoordinates(e.latLng);
-                setCustomSearchLocation();
-            });
-            map.panTo(pos);
-            map.setZoom(17);
-        }        
+            delete marker; // delete the marker because the mpa might have been reloaded between two pages
+        }
+        marker = new google.maps.Marker({
+            map: map,
+            position: pos,
+            visible: true,
+            draggable: true
+        });
+        google.maps.event.addListener(marker, "mouseup", function (e) {
+            storeCoordinates(e.latLng);
+            setCustomSearchLocation();
+        });
+        map.panTo(pos);        
+        map.setZoom(zoom);
     }
 
     function init() {
@@ -32,16 +34,18 @@ var things = (function () {
               mapTypeId: google.maps.MapTypeId.ROADMAP
             },
             mapContainer = $("#locationSelection"),
-            isGeolocEnabled = $('#closeToDevice').length > 0;
+            isGeolocEnabled = $('#closeToDevice').length > 0,
+            coords = mapContainer.data('coordinates');
 
         if (mapContainer.length > 0) {
             geocoder = new google.maps.Geocoder();
             map = new google.maps.Map(mapContainer[0], mapOptions);
             
-            if (mapContainer.data('coordinates')) {
-                var coords = mapContainer.data('coordinates'),
-                    pos = new google.maps.LatLng(coords[1], coords[0]);
+            if (coords && coords.length > 0) {
+                var pos = new google.maps.LatLng(coords[1], coords[0]);
                 addMarker(pos);
+            } else {
+                addMarker(new google.maps.LatLng(46.422713,2.263184), { zoom: 5 });
             }
         }
 

@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
+  site_name: "Outrouver.com"
 # home page view
   home:
     intro_first_paragraph: "Outrouver.com permet de trouver n'importe quoi à proximité de chez vous. Un endroit insolite, un objet bien spécifique, un restaurant typique, un bar, un service difficile à trouver, etc."

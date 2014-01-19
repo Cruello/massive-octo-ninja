@@ -42,7 +42,7 @@
       <div class="actions">
         <button type="button" id="geocode"><%= t('thing_form.actions.geocode') %></button>
       </div>
-      <div id="locationSelection"></div>
+      <div id="locationSelection" data-coordinates="<%= JSON.generate(@coordinates) %>"></div>
     </fieldset>
   </div>
 

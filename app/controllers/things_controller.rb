@@ -6,10 +6,16 @@ class ThingsController < ApplicationController
   # GET /things.json
   def index
     # @things = Thing.where("name = /.*?.*/", params[:name])
+    # client coordinates are stored as [ lng, lat ]
     if params[:searchLocation] == 'custom'
       coordinates = JSON.load(params[:customLocation])
     elsif params[:searchLocation] == 'device'
       coordinates = JSON.load(params[:deviceLocation])
+    end
+
+    if coordinates.nil?
+      # TODO: select the coordinates of the capital city in the country, on a URL domain basis
+      coordinates = [ 2.35, 48.853 ]
     end
       
     @things = Thing.where(
@@ -44,6 +50,7 @@ class ThingsController < ApplicationController
     @thing = Thing.new
     @thing.name = params[:name]
     @thing.build_position
+    @coordinates = []
   end
 
   # GET /things/1/edit
@@ -56,11 +63,9 @@ class ThingsController < ApplicationController
     thing_params[:position_attributes][:type] = 'Point'
     thing_params[:position_attributes][:coordinates] = JSON.load(thing_params[:position_attributes][:coordinates])
     thing_params[:ip] = request.env['REMOTE_ADDR']
-    # [ longitude, latitude ]
-    # logger.debug "Thing params after tratement: #{thing_params.inspect}"
+    @coordinates = thing_params[:position_attributes][:coordinates]
     @thing = Thing.new(thing_params)
     # logger.debug "Thing attributes hash: #{@thing.attributes.inspect}"
-    # @thing.coordinates = JSON.load(params[:coordinates])
 
     respond_to do |format|
       if @thing.save
