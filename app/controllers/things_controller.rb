@@ -103,7 +103,10 @@ class ThingsController < ApplicationController
   end
 
   def search
-    @topThings = Thing.all; #get the first 10 results with the most hits   
+    @topThings = Thing.all; #get the first 10 results with the most hits
+    @count = Thing.count
+    @first_thing = Thing.last
+    # mongoid method created_at returns a TimeWithZone object
   end
 
   private

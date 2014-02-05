@@ -148,6 +148,10 @@ th {
     color: #2F3239;
 }
 
+h1 {
+    padding: 0 10px;
+}
+
 #intro, #description {
     position: absolute;
     width: 45%;
