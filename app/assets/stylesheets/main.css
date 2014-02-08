@@ -107,7 +107,7 @@ html {
     color: #BDC5D4;
 }
 
-header, footer {
+header {
     background-color: #030F26;
     box-shadow: 0 0.5em 1em;
     color: #465266;
@@ -115,9 +115,9 @@ header, footer {
 }
 
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    font-size: 0.8em;
+    font-style: italic;
+    padding-top: 2em;
 }
 
 section {

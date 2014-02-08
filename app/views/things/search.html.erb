@@ -7,7 +7,7 @@
             <%= link_to t('home.new_thing_button'), controller: 'things', action: 'new' %>
         </div>
         <footer>
-            <%= t 'home.things_count', count: @count %> <%= l @first_thing.created_at %>
+            <%= t 'home.things_count', count: @count %> <%= l @first_thing_date %>
         </footer>
     </article>
 
