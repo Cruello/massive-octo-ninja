@@ -20,14 +20,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
-  site_name: "Outrouver.com"
+  site_name: "Fini la loose !"
 # home page view
   home:
-    intro_first_paragraph: "Outrouver.com permet de trouver n'importe quoi à proximité de chez vous. Un endroit insolite, un objet bien spécifique, un restaurant typique, un bar, un service difficile à trouver, etc."
-    intro_second_paragraph: "C'est un site collaboratif où tout le monde peut déposer ses trouvailles, quelles qu'elles soient. Il suffit de décrire votre trouvaille, et de préciser l'endroit sur une carte. Faites profiter les autres de vos bons plans."
+    intro_first_paragraph: "Fini la loose.fr est un site collaboratif où chacun peut aider les autres à trouver n'importe quoi, à proximité de chez soi. Objet, endroit, produit, personne, service, etc."
+    intro_second_paragraph: "Il vous est arrivé maintes fois d'écumer toutes les superettes du quartier pour trouver cet objet pourtant si commun, mais apparemment introuvable ? *TROUVER DES EXEMPLES MARRANTS* Faites profiter les autres de vos heures de recherche et de vos kilomètres parcourus, pour qu'ils puissent se dire que c'est bel et bien fini, la loose !"
     new_thing_button: "Ajouter une trouvaille"
-    search_placeholder: "ce que vous cherchez"
-    close_to_device: "Près de là ou je suis maintenant"
+    search_placeholder: "l'introuvable"
+    close_to_device: "Près de là où je suis maintenant"
     close_to_selection: "Près d'un endroit choisi sur la carte"
     Search: "Rechercher"
     things_count: "%{count} trouvailles ajoutées depuis le"
