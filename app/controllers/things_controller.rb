@@ -64,9 +64,10 @@ class ThingsController < ApplicationController
     thing_params[:position_attributes][:type] = 'Point'
     thing_params[:position_attributes][:coordinates] = JSON.load(thing_params[:position_attributes][:coordinates])
     thing_params[:ip] = request.env['REMOTE_ADDR']
-    @coordinates = thing_params[:position_attributes][:coordinates]
+    @coordinates = thing_params[:position_attributes][:coordinates] || []
     @thing = Thing.new(thing_params)
-    # logger.debug "Thing attributes hash: #{@thing.attributes.inspect}"
+    # logger.debug "COORDINATES: #{@coordinates.attributes.inspect}"
+    # logger.debug "COORDINATES: #{@coordinates.class}"
 
     respond_to do |format|
       if @thing.save
