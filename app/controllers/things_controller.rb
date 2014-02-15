@@ -31,6 +31,7 @@ class ThingsController < ApplicationController
       }
     )
 
+    @search_string = params[:name]
     @distances = []
     @things.each_index do |i|
       @distances[i] = distance(coordinates, @things[i][:position]["coordinates"]).round(3)

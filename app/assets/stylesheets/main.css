@@ -102,6 +102,15 @@ textarea {
     height: 350px;
 }
 
+#intro, #description {
+    position: absolute;
+    width: 45%;
+}
+
+#search, #location {
+    margin-left: 47%;
+}
+
 html {
     background-color: #2F3239;
     color: #BDC5D4;
@@ -148,17 +157,18 @@ th {
     color: #2F3239;
 }
 
-h1 {
-    padding: 0 10px;
+h1, h2 {
+    padding: 0 1em;
 }
 
-#intro, #description {
-    position: absolute;
-    width: 45%;
+nav.menu {
+    margin-top: -1.8em; /* under h1 */
 }
 
-#search, #location {
-    margin-left: 47%;
+.menu a {
+    display: table-cell;
+    font-weight: bold;
+    padding: 0.2em 1em;
 }
 
 /* ==========================================================================

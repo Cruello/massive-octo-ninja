@@ -26,7 +26,11 @@
             <h1>
 	        	<%= link_to image_tag("logo-96.png", alt: "site logo"), controller: "things", action: "search" %>
             	<%= link_to t('site_name'), controller: "things", action: "search" %>            	
-            </h1>            
+            </h1>
+            <nav class="menu">
+            	<%= link_to t('home_link'), controller: "things", action: "search" %>        
+            	<%= link_to t('roadmap'), controller: "statics", action: "roadmap" %>        
+            </nav>
         </header>
 		<%= yield %>
 	</body>

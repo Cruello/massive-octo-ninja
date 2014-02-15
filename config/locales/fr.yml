@@ -21,6 +21,8 @@
 
 fr:
   site_name: "Fini la loose !"
+  roadmap: "Bientôt..."
+  home_link: "Accueil"
 # home page view
   home:
     intro_first_paragraph: "Fini la loose.fr est un site collaboratif où chacun peut aider les autres à trouver n'importe quoi, à proximité de chez soi. Objet, endroit, produit, personne, service, etc."
@@ -33,6 +35,8 @@ fr:
     things_count: "%{count} trouvailles ajoutées depuis le"
 # results view
   results:
+    nb: { one: "%{nb} résultat pour \"%{search}\"",
+          other: "%{nb} résultats pour \"%{search}\"" }
     What: "Quoi"
     Where: "Où"
     Comments: "Commentaires"
@@ -85,6 +89,16 @@ fr:
             address:
               blank: "obligatoire"
 
+# statics
+  statics:
+    roadmap:
+      title: "Bientôt sur fini-la-loose.fr"
+      zero_answer_feature: "Le top des recherches sans réponse, pour permettre d'aider plus efficacement vos compagnons de loose"
+      account_feature: "Créez un compte, publiez vos trouvailles sous votre pseudo, puis mettez-les à jour"
+      rating_feature: "Réagissez aux trouvailles des autres, commentez et notez-les"
+      favorites_feature: "Enregistrez et retrouvez vos trouvailles préférées"
+
+# dates and locales
   date:
     abbr_day_names:
       - dim

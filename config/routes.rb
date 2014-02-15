@@ -4,6 +4,9 @@ Wtf::Application.routes.draw do
   get 'things/new', to: 'things#new'
   get 'things/:id', to: 'things#show', as: :thing
   post 'things', to: 'things#create'
+
+  # static pages
+  get 'statics/roadmap'
   # things_path  GET   /things(.:format)   things#search
   # things_new_path  GET   /things/new(.:format)   things#new
   # GET  /things(.:format)   things#index

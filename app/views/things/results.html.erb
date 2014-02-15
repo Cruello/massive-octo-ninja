@@ -1,4 +1,7 @@
 <section id="results">
+    <article>
+        <p><%= @things.length > 1 ? t('results.nb.other', nb: @things.length, search: @search_string) : t('results.nb.one', nb: @things.length, search: @search_string)%></p>
+    </article>
     <table>
         <tbody>
             <% @things.each_index do |i| %>
