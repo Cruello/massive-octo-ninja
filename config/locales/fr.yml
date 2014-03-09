@@ -25,14 +25,14 @@ fr:
   home_link: "Accueil"
 # home page view
   home:
-    intro_first_paragraph: "Fini la loose.fr est un site collaboratif où chacun peut aider les autres à trouver n'importe quoi, à proximité de chez soi. Objet, endroit, produit, personne, service, etc."
-    intro_second_paragraph: "Il vous est arrivé maintes fois d'écumer toutes les superettes du quartier pour trouver cet objet pourtant si commun, mais apparemment introuvable ? *TROUVER DES EXEMPLES MARRANTS* Faites profiter les autres de vos heures de recherche et de vos kilomètres parcourus, pour qu'ils puissent se dire que c'est bel et bien fini, la loose !"
-    new_thing_button: "Ajouter une trouvaille"
+    intro_first_paragraph: "Il vous est arrivé maintes fois d'écumer toutes les superettes du quartier pour trouver cet objet pourtant si commun, mais apparemment introuvable ? Où retrouver votre gel douche préféré qui a disparu des rayons ? Où trouver des chocolats qui dÉcHiRent ?! Un bar avec un babyfoot gratuit ?!! Faites profiter les autres de vos heures de recherche et de vos kilomètres parcourus, pour qu'ils puissent se dire que c'est bel et bien fini, la loose !"
+    intro_second_paragraph: "Grâce à fini-la-loose.fr, chacun peut aider son prochain à trouver n'importe quoi, à proximité de chez soi. Objet, endroit, produit, personne, service, bon plan, etc. N'hésitez plus :"
+    new_thing_button: "Ajouter une anti-loose"
     search_placeholder: "l'introuvable"
     close_to_device: "Près de là où je suis maintenant"
     close_to_selection: "Près d'un endroit choisi sur la carte"
     Search: "Rechercher"
-    things_count: "%{count} trouvailles ajoutées depuis le"
+    things_count: "%{count} anti-looses ajoutées depuis le"
 # results view
   results:
     nb: { one: "%{nb} résultat pour \"%{search}\"",
@@ -57,21 +57,21 @@ fr:
   thing_form:
     placeholders:
       address: "adresse, ville"
-      name: "brève description"
-      comments: "précisions complémentaires"
+      name: "description"
+      comments: "précisions"
     legends:
       description: "Description"
       location: "Localisation"
     actions:
       geocode: "Positionner sur la carte"
-    title: "Votre trouvaille"
-    added: "Trouvaille ajoutée avec succès"
-    creation_error: { one: "1 erreur a empêché l'enregistrement de votre trouvaille",
-    	              other: "%{count} erreurs ont empêché l'enregistrement de votre trouvaille" }
+    title: "Votre anti-loose"
+    added: "Anti-loose ajoutée avec succès"
+    creation_error: { one: "1 erreur a empêché l'enregistrement de votre anti-loose",
+    	              other: "%{count} erreurs ont empêché l'enregistrement de votre anti-loose" }
 
   mongoid:
     models:
-      thing: "trouvaille"
+      thing: "anti-loose"
     attributes:
       thing:
         position: "position"
@@ -94,9 +94,10 @@ fr:
     roadmap:
       title: "Bientôt sur fini-la-loose.fr"
       zero_answer_feature: "Le top des recherches sans réponse, pour permettre d'aider plus efficacement vos compagnons de loose"
-      account_feature: "Créez un compte, publiez vos trouvailles sous votre pseudo, puis mettez-les à jour"
-      rating_feature: "Réagissez aux trouvailles des autres, commentez et notez-les"
-      favorites_feature: "Enregistrez et retrouvez vos trouvailles préférées"
+      account_feature: "Créez un compte, publiez vos anti-looses sous votre pseudo, puis mettez-les à jour"
+      rating_feature: "Réagissez aux anti-looses des autres, commentez et notez-les"
+      favorites_feature: "Enregistrez et retrouvez vos anti-looses préférées"
+      search_engine_feature: "Un moteur de recherche surpuissant (!)"
 
 # dates and locales
   date:
