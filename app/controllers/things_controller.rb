@@ -5,7 +5,7 @@ class ThingsController < ApplicationController
   # GET /things
   # GET /things.json
   def index
-    # @things = Thing.where("name = /.*?.*/", params[:name])
+    # index is the results page; it contains all the things, filtered by the search parameters
     # client coordinates are stored as [ lng, lat ]
     if params[:searchLocation] == 'custom'
       coordinates = JSON.load(params[:customLocation])
@@ -17,9 +17,12 @@ class ThingsController < ApplicationController
       # TODO: select the coordinates of the capital city in the country, on a URL domain basis
       coordinates = [ 2.35, 48.853 ]
     end
+
+    search = ".*#{params[:name]}.*".gsub(/\s/, ".*")
+    logger.debug "SEARCH #{search}"
       
     @things = Thing.where(
-      { name: /.*#{params[:name]}.*/,
+      { name: /#{search}/,
         position: 
           { "$near" => 
             { "$geometry" =>
