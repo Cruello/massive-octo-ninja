@@ -25,8 +25,13 @@ fr:
   home_link: "Accueil"
 # home page view
   home:
-    intro_first_paragraph: "Il vous est arrivé maintes fois d'écumer toutes les superettes du quartier pour trouver cet objet pourtant si commun, mais apparemment introuvable ? Où retrouver votre gel douche préféré qui a disparu des rayons ? Où trouver des chocolats qui dÉcHiRent ?! Un bar avec un babyfoot gratuit ?!! Faites profiter les autres de vos heures de recherche et de vos kilomètres parcourus, pour qu'ils puissent se dire que c'est bel et bien fini, la loose !"
-    intro_second_paragraph: "Grâce à fini-la-loose.fr, chacun peut aider son prochain à trouver n'importe quoi, à proximité de chez soi. Objet, endroit, produit, personne, service, bon plan, etc. N'hésitez plus :"
+    intro_first_paragraph: "Il vous est arrivé maintes fois d'écumer toutes les superettes du quartier pour trouver cet objet pourtant si commun, mais apparemment introuvable ? Pas envie de commander ce truc qui coûte 3 € sur Internet (+6 € de frais de port), mais où donc se le procurer ?? Plein de restaurants dans le coin, mais lequel fait le meilleur cassoulet ?"     
+    intro_second_paragraph: "Où trouver ce zesteur tellement nécessaire à la parfaite réussite de votre dessert maison ?
+    Où trouver des chocolats qui dÉcHiRent ?! Un bar avec un babyfoot gratuit ?!!
+    Et ces aimants, indispensables à votre dernière invention révolutionnaire ?
+    Un chiropracteur qui ne vous fout pas la colonne vertébrale en compote, ce serait pas mal, non ?"
+    intro_third_paragraph: "Faites profiter les autres de vos heures de recherche et de vos kilomètres parcourus, pour qu'ils puissent se dire que c'est bel et bien fini, la loose !
+    Grâce à fini-la-loose.fr, chacun peut aider son prochain à trouver n'importe quoi, à proximité de chez soi. Objet, endroit, produit, personne, service, bon plan, etc. N'hésitez plus :"
     new_thing_button: "Ajouter une anti-loose"
     search_placeholder: "l'introuvable"
     close_to_device: "Près de là où je suis maintenant"
