@@ -1,6 +1,8 @@
 class Thing
   include Mongoid::Document
   include Mongoid::Timestamps
+  include AlgoliaSearch
+
   field :name, type: String
   field :address, type: String
   field :comments, type: String
@@ -11,6 +13,9 @@ class Thing
   validates :name, length: { minimum: 3, maximum: 100 }
   validates :address, length: { maximum: 200 }
   index({ name: 1, position: "2dsphere" })
+  algoliasearch per_environment: true do
+    attribute :name, :comments, :address
+  end
 end
 
 class Position

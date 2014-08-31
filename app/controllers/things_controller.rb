@@ -109,6 +109,8 @@ class ThingsController < ApplicationController
     @count = Thing.count
     @first_thing_date = Thing.first.created_at || DateTime.now
     # mongoid method created_at returns a TimeWithZone object
+    # @piment = Thing.search('pim')
+    # logger.debug "SEARCH PIM: #{@piment}"
   end
 
   private

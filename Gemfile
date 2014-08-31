@@ -58,5 +58,11 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-# Use Unicorn as HTTP server instead of default WeBRICK
+# Use Unicorn as HTTP server instead of default WeBRICK (launched with the Foreman gem, using "foreman start")
 gem 'unicorn'
+
+# Use Algoliasearch as a search engine
+gem 'algoliasearch-rails'
+
+#Use the pagination gem Kaminari
+gem 'kaminari'

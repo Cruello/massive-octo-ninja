@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require modernizr-2.6.2.min.js
 //= require_tree
+//= require algolia/algoliasearch.min
