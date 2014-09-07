@@ -86,6 +86,9 @@ var things = (function () {
     }
 
     function setEventHandlers() {
+        // var searchClient = new AlgoliaSearch('7PB0RRUBLE', '5136eab4d7e384363b35ae7cd31ca25f'),
+        //     searchIndex = searchClient.initIndex('Thing_development');
+
         $('#geocode').click(function() {
             geocode($('#thing_address').get(0));        
         });
@@ -106,6 +109,12 @@ var things = (function () {
         }
         
         $('#closeToDevice').click(setMarkerAtDevicePosition);
+        // $('#name').keypress(function (event) {
+        //     console.log(this.value);
+        //     searchIndex.search(this.value, function (success, content) {
+        //         console.log(content.hits[0].name);
+        //     });
+        // });
     }
 
     function setCurrentPos(position) {

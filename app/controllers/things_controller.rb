@@ -17,20 +17,26 @@ class ThingsController < ApplicationController
       # TODO: select the coordinates of the capital city in the country, on a URL domain basis
       coordinates = [ 2.35, 48.853 ]
     end
-      
-    @things = Thing.where(
-      { name: /.*#{params[:name]}.*/,
-        position: 
-          { "$near" => 
-            { "$geometry" =>
-              { type: "Point",
-                coordinates: coordinates
-              }
-            }
-          }
-      }
-    )
+    
+    algolia_index = Algolia::Index.new 'Thing_development'
+    algolia_things = algolia_index.search params[:name]
+    # @things = Thing.where(
+    #   { name: /.*#{params[:name]}.*/,
+    #     position: 
+    #       { "$near" => 
+    #         { "$geometry" =>
+    #           { type: "Point",
+    #             coordinates: coordinates
+    #           }
+    #         }
+    #       }
+    #   }
+    # )
 
+    @things = []
+    algolia_things['hits'].each do |hit|
+      @things.push Thing.find(hit['objectID'])
+    end
     @search_string = params[:name]
     @distances = []
     @things.each_index do |i|
